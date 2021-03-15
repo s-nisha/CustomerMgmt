@@ -7,23 +7,27 @@ import javax.transaction.Transactional;
 import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
 import org.springframework.stereotype.Repository;
 
-@Repository
 
-public class ItemDAOImpl implements IItemDAO {
+
+
+@Repository
+public abstract class ItemDAOImpl implements IItemDAO {
 	
 	@PersistenceContext
 	EntityManager entityManager;
+
 
 	@Override
 	@Transactional
 	public Item add(Item item) {
 		entityManager.persist(item);
-		return null;
+		return item;
 	}
 
 	@Override
 	public Item update(Item item) {
-		return null;
+		entityManager.merge(item);
+		return item;
 	}
 
 	@Override
@@ -31,4 +35,9 @@ public class ItemDAOImpl implements IItemDAO {
 		return entityManager.find(Item.class, itemID);
 	}
 
+	public Item add(double price, String description) {
+		return null;
+	}
+
+	
 }

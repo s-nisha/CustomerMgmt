@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
+
 @Entity
 public class Items {
 	@GeneratedValue
@@ -15,6 +17,7 @@ public class Items {
     double ItemPrice;
     String ItemDescription;
     LocalDateTime ItemAddedDate;
+    // cust type bghtby fld many to one,getset
     
 	public Items( double itemPrice, String itemDescription, LocalDateTime itemAddedDate) {
 		super();
@@ -22,6 +25,9 @@ public class Items {
 		ItemPrice = itemPrice;
 		ItemDescription = itemDescription;
 		ItemAddedDate = itemAddedDate;
+	}
+	public Items() {
+		
 	}
 	public int getItemId() {
 		return ItemId;

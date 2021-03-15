@@ -16,6 +16,7 @@ public class Customer {
 	
 	@OneToOne 
 	Account account;
+	//items one to many; getter setter
 	
 	public long getId() {
 		return id;

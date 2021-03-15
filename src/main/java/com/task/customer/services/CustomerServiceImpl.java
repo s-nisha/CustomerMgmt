@@ -1,10 +1,13 @@
 package com.task.customer.services;
 
+import java.util.Set;
+
+import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.task.customer.dao.AccountDAOImpl;
-import com.task.customer.dao.CustomerDAOImpl;
+import com.task.customer.dao.IAccountDAO;
+import com.task.customer.dao.ICustomerDAO;
 import com.task.customer.entities.Account;
 import com.task.customer.entities.Customer;
 
@@ -12,10 +15,13 @@ import com.task.customer.entities.Customer;
 public class CustomerServiceImpl implements ICustomerService {
 	
 	@Autowired
-	CustomerDAOImpl customerDAO;
+	ICustomerDAO customerDAO;
 	
 	@Autowired
-	AccountDAOImpl accountDAO;
+	IAccountDAO accountDAO;
+	
+	
+	
 
 	@Override
 	public Customer findByID(long customerID) {
@@ -32,9 +38,19 @@ public class CustomerServiceImpl implements ICustomerService {
 	}
 
 	@Override
-	public Customer addAmount(Long customerId, double amount) {
+	public Customer addAmount(long customerId, double amount) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Set<Item> itemsBoughtByCustomer(long customerID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	
+	
 
 }
