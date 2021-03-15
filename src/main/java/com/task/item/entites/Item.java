@@ -1,15 +1,16 @@
-package com.task.customer.entities;
+package com.task.item.entites;
 
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
-import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
+import com.task.customer.entities.Customer;
 
 @Entity
-public class Items {
+public class Item {
 	@GeneratedValue
 	@Id
 	int ItemId;
@@ -17,16 +18,18 @@ public class Items {
     double ItemPrice;
     String ItemDescription;
     LocalDateTime ItemAddedDate;
-    // cust type bghtby fld many to one,getset
     
-	public Items( double itemPrice, String itemDescription, LocalDateTime itemAddedDate) {
+    @ManyToOne
+    Customer boughtBy;
+    
+	public Item( double itemPrice, String itemDescription, LocalDateTime itemAddedDate) {
 		super();
 		
 		ItemPrice = itemPrice;
 		ItemDescription = itemDescription;
 		ItemAddedDate = itemAddedDate;
 	}
-	public Items() {
+	public Item() {
 		
 	}
 	public int getItemId() {
@@ -34,6 +37,12 @@ public class Items {
 	}
 	public void setItemId(int itemId) {
 		ItemId = itemId;
+	}
+	public Customer getBoughtBy() {
+		return boughtBy;
+	}
+	public void setBoughtBy(Customer boughtBy) {
+		this.boughtBy = boughtBy;
 	}
 	public double getItemPrice() {
 		return ItemPrice;

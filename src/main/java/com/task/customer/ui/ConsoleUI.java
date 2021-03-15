@@ -1,13 +1,15 @@
 package com.task.customer.ui;
 
-import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.task.customer.entities.Customer;
 
 import com.task.customer.services.CustomerServiceImpl;
-import com.task.customer.services.ItemServiceImpl;
+import com.task.item.entites.Item;
+import com.task.item.service.ItemServiceImpl;
+
 
 @Component
 public class ConsoleUI {
@@ -25,7 +27,7 @@ public class ConsoleUI {
 		
 		
 		Customer customer7 = customerService.findByID(2);
-		Item it3 = itemService.findByID(1);
+		Item it3 = itemService.findByID(5);
 		
 		
 		System.out.println(customer7.getName());
@@ -33,8 +35,11 @@ public class ConsoleUI {
 		System.out.println("Name: "+ customer2.getName() );
 		
 		System.out.println(it3);
-		System.out.println("Item Details "+ it1);
+		System.out.println("Item ID: "+ it1.getItemId() + "\nItem Desc: "+it1.getItemDescription());
 		System.out.println("Item Details " + it2);
+		
+		Item item = itemService.buyItem(5, 2);
+		System.out.println("item id: "+item.getItemId() + "\nitem desc: "+item.getItemDescription() + "\nboughtBy:" + item.getBoughtBy().getName());
 		
 		
 	}

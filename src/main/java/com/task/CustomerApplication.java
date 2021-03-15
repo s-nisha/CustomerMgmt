@@ -1,4 +1,4 @@
-package com.task.customer;
+package com.task;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

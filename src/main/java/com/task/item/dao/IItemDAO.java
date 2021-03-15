@@ -1,15 +1,12 @@
-package com.task.customer.dao;
+package com.task.item.dao;
 
-import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
-
-
-
-
+import com.task.item.entites.Item;
 
 public interface IItemDAO {
 	
     Item update(Item item);
     Item findByID(int itemID);
 	Item add(Item item);
+	
 
 }

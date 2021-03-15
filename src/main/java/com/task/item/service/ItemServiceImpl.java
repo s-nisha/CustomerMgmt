@@ -1,31 +1,30 @@
-package com.task.customer.services;
+package com.task.item.service;
 
 import java.time.LocalDateTime;
 
 import javax.transaction.Transactional;
 
-import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.task.customer.dao.ItemDAOImpl;
-import com.task.customer.entities.Items;
+import com.task.item.dao.ItemDAOImpl;
+import com.task.item.entites.Item;
 
 @Service
 public class ItemServiceImpl implements IItemService {
 	@Autowired
-	ItemDAOImpl itemDAO;
+	ItemDAOImpl	 itemDAO;
 
 	@Transactional
 	@Override
 	public Item create(double price, String description) {
-	    Items item = new Items();
+	    Item item = new Item();
 	    item.setItemPrice(price);
 	    item.setItemDescription(description);
 	    LocalDateTime localDateTime = LocalDateTime.now();
 	    item.setItemAddedDate(localDateTime);
 	    
-	    Item items = itemDAO.add(price,description);
+	    Item items = itemDAO.add(item);
 	    
 		//create objects
 		return items;
@@ -38,9 +37,8 @@ public class ItemServiceImpl implements IItemService {
 	}
 
 	@Override
-	public Item buyItem(String itemID, long customerID) {
-		// who bought, what bought
-		return null;
+	public Item buyItem(int itemID, long customerID) {
+		return itemDAO.buyItem(itemID, customerID);
 	}
 
 }
