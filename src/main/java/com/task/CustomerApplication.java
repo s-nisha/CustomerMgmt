@@ -12,8 +12,9 @@ public class CustomerApplication {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = SpringApplication.run(CustomerApplication.class, args);
 		
-		ConsoleUI ui = context.getBean(ConsoleUI.class);
-		ui.start();
+		ConsoleUI Customerui = context.getBean(ConsoleUI.class);
+		
+		Customerui.start();
 	}
 
 }

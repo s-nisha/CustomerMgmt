@@ -1,3 +1,4 @@
+/*
 package com.task.item.dao;
 
 import java.util.HashSet;
@@ -47,7 +48,7 @@ public class ItemDAOImpl implements IItemDAO {
 		// find customer
 		Customer cus = entityManager.find(Customer.class, customerID);
 		item.setBoughtBy(cus);
-		// set<iten> items;
+		// set<item> items;
 		Set<Item> items = cus.getBoughtItems();
 		if(items == null)
 			items = new HashSet<Item>();
@@ -61,3 +62,4 @@ public class ItemDAOImpl implements IItemDAO {
 
 	
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package com.task.item.dao;
 
 import com.task.item.entites.Item;
@@ -10,3 +11,4 @@ public interface IItemDAO {
 	
 
 }
+*/
